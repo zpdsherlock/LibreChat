@@ -14,7 +14,7 @@ const domains = {
   server: process.env.DOMAIN_SERVER,
 };
 
-const isProduction = process.env.NODE_ENV === 'production';
+// const isProduction = process.env.NODE_ENV === 'production';
 
 /**
  * Logout user
@@ -237,7 +237,8 @@ const setAuthTokens = async (userId, res, sessionId = null) => {
     res.cookie('refreshToken', refreshToken, {
       expires: new Date(refreshTokenExpires),
       httpOnly: true,
-      secure: isProduction,
+      // secure: isProduction,
+      secure: false,
       sameSite: 'strict',
     });
 
